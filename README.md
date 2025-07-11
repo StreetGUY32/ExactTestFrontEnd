@@ -22,8 +22,8 @@ This is the frontend for the **Task Management System**, where users and admins 
 1. Clone the repository:
 
 ```bash
-git clone <your-repository-url>
-cd <your-project-directory>
+git clone https://github.com/StreetGUY32/ExactTestFrontEnd.git
+cd ExactTestFrontEnd
 ```
 
 2. Install dependencies:
