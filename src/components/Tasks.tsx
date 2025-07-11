@@ -1,7 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useQuery, useMutation } from 'react-query';
 import axios from 'axios';
 import ReactToast from 'react-hot-toast';
+import io from 'socket.io-client';
+
+// Connect to Socket.io server
+const socket = io('http://localhost:5000'); // Change this if needed for production
 
 // Fetch tasks
 const fetchTasks = async () => {
@@ -94,11 +98,7 @@ const Tasks = () => {
     const handleUpdateTask = (e: React.FormEvent) => {
         e.preventDefault();
         if (currentTaskId) {
-            updateTaskMutation.mutate({
-                taskId: currentTaskId,   // Pass the task ID to identify the task
-                title: title,            // Updated title
-                description: description // Updated description
-            });
+            updateTaskMutation.mutate({ taskId: currentTaskId, title, description });
         }
     };
 
@@ -112,6 +112,21 @@ const Tasks = () => {
         setTitle(taskTitle);
         setDescription(taskDescription);
     };
+
+    // Listen for task assigned event
+    useEffect(() => {
+        if (!socket) return;
+
+        socket.on('taskAssigned', (data) => {
+            ReactToast.success(`Task Assigned: ${data.task.title} to ${data.user.name}`, {
+                duration: 10000,
+            });
+        });
+
+        return () => {
+            socket.off('taskAssigned');
+        };
+    }, [socket]);
 
     return (
         <div>

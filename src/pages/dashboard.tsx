@@ -41,32 +41,32 @@ const Dashboard = () => {
                             Profile
                         </button>
                     </li>
-                    {
-                        !isAdmin && (
-                            <li>
-                                <button onClick={() => setActiveTab('tasks')} className="text-white hover:text-indigo-300">
-                                    Tasks
-                                </button>
-                            </li>
 
-                        )
-                    }
                     <li>
-                        <button
-                            onClick={() => handleTabChange('users')}
-                            className="text-white hover:text-indigo-300"
-                        >
-                            Users
+                        <button onClick={() => setActiveTab('tasks')} className="text-white hover:text-indigo-300">
+                            Tasks
                         </button>
                     </li>
-                    <li>
-                        <button
-                            onClick={() => handleTabChange('Task Mang')}
-                            className="text-white hover:text-indigo-300"
-                        >
-                            Tasks Mang
-                        </button>
-                    </li>
+
+
+                    {isAdmin && <>
+                        <li>
+                            <button
+                                onClick={() => handleTabChange('users')}
+                                className="text-white hover:text-indigo-300"
+                            >
+                                Users
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                onClick={() => handleTabChange('Task Mang')}
+                                className="text-white hover:text-indigo-300"
+                            >
+                                Tasks Mang
+                            </button>
+                        </li>
+                    </>}
                 </ul>
                 <button
                     onClick={() => {
