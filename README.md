@@ -1,40 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Frontend - Task Management System
 
-## Getting Started
+This is the frontend for the **Task Management System**, where users and admins can manage tasks, view their profile, and interact in real-time with Socket.io notifications.
 
-First, run the development server:
+## Features:
+* **Login & Registration**: Users can log in and register to access their dashboards.
+* **Task Management**: Users can view, create, update, and delete tasks. Admins can assign tasks to users.
+* **Admin Features**:
+   * Admins can view a list of all users.
+   * Admins can create, view, and assign tasks to users.
+   * Admins can delete and update user profiles.
+* **Real-Time Notifications**: When tasks are assigned, users receive real-time alerts using **Socket.io** and **React Hot Toast**.
+
+## Prerequisites:
+* **Node.js** (v16 or higher)
+* **React.js** (v18)
+* **React Query** for data fetching
+* **Socket.io-client** for real-time communication
+* **React Hot Toast** for notifications
+
+## Installation:
+1. Clone the repository:
+
+```bash
+git clone <your-repository-url>
+cd <your-project-directory>
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The frontend will be available at `http://localhost:3000`.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Features Walkthrough:
+1. **Login & Registration**
+* Login form includes email and password.
+* Registration allows new users to sign up with email, name, and password.
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+2. **Dashboard**
+* **Admin Users**: Admins can view all users, assign tasks to them, and view/edit their profiles.
+* **Task Management**: Users and admins can manage tasks from the dashboard.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+3. **Real-Time Notifications**
+* Socket.io connection established with the backend.
+* **React Hot Toast** is used to show notifications when a task is assigned.
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. **Task Assignment**
+* Admin assigns tasks to users using a dropdown that lists all available users.
+* Notifications are sent in real-time when tasks are assigned.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+## Technologies Used:
+* **React** (for building the UI)
+* **React Query** (for handling API calls)
+* **Socket.io-client** (for real-time updates)
+* **React Hot Toast** (for showing toast notifications)
+* **Axios** (for API requests)
